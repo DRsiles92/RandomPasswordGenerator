@@ -3,6 +3,9 @@
     border-color: grey;
 
 }
+#genPass{
+    border: 0px;
+}
 
 .gen-button {
     border-radius: 30px;
