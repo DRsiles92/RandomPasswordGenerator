@@ -1,0 +1,13 @@
+.pw-box{
+    border-style: dashed;
+    border-color: grey;
+
+}
+
+.gen-button {
+    border-radius: 30px;
+}
+
+.copy-button{
+    border-radius: 30px;
+}
