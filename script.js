@@ -5,45 +5,74 @@ var password = {
     lowerCase: confirm('Would you like your password to contain lowercase letters?'),
     upperCase: confirm('Would you like your password to contain uppercase letters?')
 }
-var char = ['!','#','$','%','&','*','+','<','=','>','?','@','^','~'];
-var numbers = ['1','2','3','4','5','6','7','8','9','0'];
-var lower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-var upper = ['A','B','C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
 var randomArray = [];
-var guaranteeArray = [];//guarantee one of each char
-generator();
-
-    // console.log(password);
-    function indexGenerator(arrayLength){
-       var indexObject = arrayLength[Math.floor(Math.random() * arrayLength.length)];
-       return indexObject;
-    }
-    
-    if (password.specialChar){
-        guaranteeArray.push(indexGenerator(char)); //grabs char array pushes it to indexGenerator returns indexObject and pushes to guaranteeArray
-        var copiedArray = randomArray.concat(char);
-        console.log(guaranteeArray);
-        console.log(copiedArray);
-    }
-    if (password.containNum){
-        guaranteeArray.push(indexGenerator(numbers)); //grabs char array pushes it to indexGenerator returns indexObject and pushes to guaranteeArray
-        var copiedArray = randomArray.concat(char);
-        console.log(guaranteeArray);
-        console.log(copiedArray);
-    }
-
-    //if statements for each question
+// var guaranteeArray;//guarantee one of each char
+// var optionsArray = [];
 
 
+var choiceArray = {
+    char: "!@#$%^&*()",
+    numbers: "1234567890",
+    lower: "abcdefghijklmnopqrstuvwxyz",
+    upper: "ABCDEFGHIJKLMNPOQRSTUVWXYZ"
+}
+var optionsArray = [];
+var guaranteeArray = [];
+
+function indexGenerator(arrayLength) {
+    var indexObject = arrayLength[Math.floor(Math.random() * arrayLength.length)];
+    return indexObject;
+}
+
+console.log(password.specialChar);
+if (password.specialChar === true) {
+    newOptions = optionsArray.concat(Array.from(choiceArray.char));
+    // console.log(newOptions);
+    optionsArray = newOptions;
+    guaranteeArray.push(indexGenerator(choiceArray.char)); //grabs char array pushes it to indexGenerator returns indexObject and pushes to guaranteeArray
+    console.log(optionsArray);
+}
+
+console.log(password.containNum);
+if (password.containNum === true) {
+    var withNum = optionsArray.concat(Array.from(choiceArray.numbers));
+    optionsArray = withNum;
+    guaranteeArray.push(indexGenerator(choiceArray.numbers)); //grabs char array pushes it to indexGenerator returns indexObject and pushes to guaranteeArray
+    console.log(optionsArray);
+}
+
+console.log(password.lowerCase);
+if (password.lowerCase === true) {
+    var withLower = optionsArray.concat(Array.from(choiceArray.lower));
+    optionsArray = withLower;
+    guaranteeArray.push(indexGenerator(choiceArray.lower)); //grabs char array pushes it to indexGenerator returns indexObject and pushes to guaranteeArray
+    console.log(optionsArray);
+}
+
+console.log(password.upperCase);
+if (password.upperCase === true) {
+    var withUpper = optionsArray.concat(Array.from(choiceArray.upper));
+    optionsArray = withUpper;
+    guaranteeArray.push(indexGenerator(choiceArray.upper)); //grabs char array pushes it to indexGenerator returns indexObject and pushes to guaranteeArray
+    console.log(optionsArray);
+}
+
+console.log(guaranteeArray);
+// console.log(optionsArray);
 
 //loop to grab random chars for length amount of password
-function generator(){
-    for(i=0;i<password.length-1;i++){
-        guaranteeArray.push(char[Math.floor(Math.random() * char.length)]) //random index number of char and pushing into an array
+if (guaranteeArray.length <= password.length) {
+    let x = password.length - guaranteeArray.length; //password length - number of options 
+    for (i = 0; i < x; i++) {
+        var newGua = guaranteeArray.concat(optionsArray[Math.floor(Math.random() * optionsArray.length)]) //random index number of char and pushing into an array
+        console.log(newGua)
+        guaranteeArray = newGua;
     }
-    // console.log(guaranteeArray);
 }
+
+
+
+console.log(guaranteeArray);
 
 function myFunction() {
     /* Get the text field */
