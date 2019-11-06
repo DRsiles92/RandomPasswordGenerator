@@ -24,8 +24,12 @@
                     <h1>Generate a Password</h1>
                     <hr>
                     <div class="row pw-box rounded shadow p-5">
-                            <input class="col" type="text" value="Your Secure Password" id="genPass">
-                        <!-- <p class="text-center align-baseline ">Your Secure Password</p> -->
+                        <input type="text" value="Generate a Password" id="genPass">
+                        <!-- <p class="col" id="genPass" type="text" value="">
+                            <script type="text/javascript">
+                        document.write(genPassString)
+                      </script></p> -->
+                        <!-- <p class="text-center align-baseline">Your Secure Password</p> -->
                     </div>
                     <hr>
                 </div>
@@ -34,7 +38,7 @@
             <!-- buttons -->
             <div class="row d-flex bd-highlight mb-3">
                 <div class="d-inline-flex p-2 bd-highlight justify-content-around">
-                    <button type="button" class="gen-button btn btn-danger">Generate Password</button>
+                    <button onclick="generatePassword()" type="button" class="gen-button btn btn-danger">Generate Password</button>
                 </div>
                 <div class="d-inline-flex p-2 bd-highlight justify-content-around ml-auto p-2 bd-highlight">
                     <button onclick="myFunction()" type="button" class="copy-button btn btn-secondary">Copy to Clipboard</button>

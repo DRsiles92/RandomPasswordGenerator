@@ -1,28 +1,10 @@
-function generatePassword(){
-
-var passwordLength = prompt('How long of a password would you like?(8-128 characters):');
-if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
-    alert("Input not valid. Try again!");
-    return;
-  } else {
-    
- 
-
-
 var password = {
+    length: prompt('How long of a password would you like?(8-128 characters):'),
     specialChar: confirm('Would you like your password to contain special characters?'),
     containNum: confirm('Would you like your password to contain numbers?'),
     lowerCase: confirm('Would you like your password to contain lowercase letters?'),
     upperCase: confirm('Would you like your password to contain uppercase letters?')
-    }
-
-
-
-
-
-
-
-
+}
 // var genPassEl = document.getElementById("genPass")
 // inputElement.type = "text"
 // inputElement.addEventListener('click', myPassword(){
@@ -89,8 +71,8 @@ console.log(guaranteeArray);
 
 
 //loop to grab random chars for length amount of password
-if (guaranteeArray.length <= passwordLength) {
-    let x = passwordLength - guaranteeArray.length; //password length - number of options 
+if (guaranteeArray.length <= password.length) {
+    let x = password.length - guaranteeArray.length; //password length - number of options 
     for (i = 0; i < x; i++) {
         var newGua = guaranteeArray.concat(optionsArray[Math.floor(Math.random() * optionsArray.length)]) //random index number of char and pushing into an array
         console.log(newGua)
@@ -105,13 +87,11 @@ if (guaranteeArray.length <= passwordLength) {
     }
     // myPassword();
     console.log(genPassString);
-    document.getElementById("genPass").value = genPassString;
+    // document.getElementById("genPass").value = genPassString;
     // document.getElementById("genPassEl").Value = genPassString;
     // myPassword();
 }
 
-}
-}
 
 
 function myFunction() {
